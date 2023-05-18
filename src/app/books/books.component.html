@@ -1,0 +1,72 @@
+<h1>Books</h1>
+<p>Here's a list of Books: feel free to play with it.</p>
+<button (click)="startAddingBook()">Add Book</button>
+<table
+  class="table table-striped"
+  aria-labelledby="tableLabel"
+  [hidden]="!books"
+>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Year</th>
+      <th>Rating</th>
+      <th>Author ID</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let book of books">
+      <td>{{ book.id }}</td>
+      <td>{{ book.title }}</td>
+      <td>{{ book.year }}</td>
+      <td>{{ book.rating }}</td>
+      <td>{{ book.authorId }}</td>
+      <td>
+        <button (click)="editBook(book)">Edit</button>
+        <button (click)="removeBook(book)">Remove</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div *ngIf="showAddFormPopup && newBook">
+  <div class="popup-container">
+    <h2>Add New Book</h2>
+    <form (ngSubmit)="addBook()">
+      <label>Title</label>
+      <input [(ngModel)]="newBook.title" name="title" required />
+      <label>Year</label>
+      <input [(ngModel)]="newBook.year" name="year" required />
+      <label>Rating</label>
+      <input [(ngModel)]="newBook.rating" name="rating" required />
+      <label>Author ID</label>
+      <input [(ngModel)]="newBook.authorId" name="authorId" required />
+      <div class="button-container">
+        <button type="submit">Add</button>
+        <button type="button" (click)="cancelAdd()">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div *ngIf="showEditFormPopup && editedBook">
+  <div class="popup-container">
+    <h2>Edit Book</h2>
+    <form (ngSubmit)="saveEditedBook()">
+      <label>Title</label>
+      <input [(ngModel)]="editedBook.title" name="title" required />
+      <label>Year</label>
+      <input [(ngModel)]="editedBook.year" name="year" required />
+      <label>Rating</label>
+      <input [(ngModel)]="editedBook.rating" name="rating" required />
+      <label>Author ID</label>
+      <input [(ngModel)]="editedBook.authorId" name="authorId" required />
+      <div class="button-container">
+        <button type="submit">Save</button>
+        <button type="button" (click)="cancelEdit()">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>

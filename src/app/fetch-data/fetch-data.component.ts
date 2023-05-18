@@ -5,21 +5,23 @@ import { environment } from '../environment/environment';
 @Component({
   selector: 'app-fetch-data',
   templateUrl: './fetch-data.component.html',
-  styleUrls: ['./fetch-data.component.css']
+  styleUrls: ['./fetch-data.component.css'],
 })
 export class FetchDataComponent {
-  public forecasts: WeatherForecast[] = [];
+  public authors: Author[] = [];
 
   constructor(http: HttpClient) {
-            http.get<WeatherForecast[]>(environment.baseUrl + 'weatherforecast').subscribe(result => {
-      this.forecasts = result;
-    }, error => console.error(error));
+    http.get<Author[]>(environment.baseUrl + '/api/Author').subscribe(
+      (result) => {
+        this.authors = result;
+      },
+      (error) => console.error(error)
+    );
   }
 }
 
-interface WeatherForecast {
-  date: string;
-  temperatureC: number;
-  temperatureF: number;
-  summary: string;
+interface Author {
+  name: string;
+  age: number;
+  rating: number;
 }
