@@ -15,7 +15,7 @@
   </div>
 
   <div class="books-grid">
-    <h2>Books by {{ author.name }}</h2>
+    <h2>Books by {{ author?.name }}</h2>
     <div class="book-profile" *ngFor="let book of books">
       <h3>{{ book.title }}</h3>
       <p><strong>Year:</strong> {{ book.year }}</p>
