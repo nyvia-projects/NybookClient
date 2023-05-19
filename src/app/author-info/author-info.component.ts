@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../environment/environment';
+import { Book } from '../books/book';
 
 @Component({
   selector: 'app-author-info',
@@ -9,9 +10,14 @@ import { environment } from '../environment/environment';
   styleUrls: ['./author-info.component.css'],
 })
 export class AuthorInfoComponent implements OnInit {
-  public author: any; // Update the type as per your Author interface
+  public author: any;
+  public books: Book[] = [];
 
-  constructor(private route: ActivatedRoute, private http: HttpClient) {}
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private http: HttpClient
+  ) {}
 
   ngOnInit(): void {
     const authorId = this.route.snapshot.params['id'];
@@ -19,6 +25,23 @@ export class AuthorInfoComponent implements OnInit {
     this.http.get<any>(url).subscribe(
       (result) => {
         this.author = result;
+        this.getAuthorWorks(authorId);
+      },
+      (error) => {
+        if (error.status === 404) {
+          this.router.navigateByUrl('/404');
+        } else {
+          console.log('Error occurred:', error);
+        }
+      }
+    );
+  }
+
+  getAuthorWorks(authorId: number): void {
+    const url = environment.baseUrl + `api/Authors/Works/${authorId}`;
+    this.http.get<Book[]>(url).subscribe(
+      (result) => {
+        this.books = result;
       },
       (error) => {
         console.log('Error occurred:', error);

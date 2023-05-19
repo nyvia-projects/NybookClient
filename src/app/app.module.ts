@@ -19,6 +19,7 @@ import { AuthInterceptor } from './auth/auth.interceptor';
 import { AuthorsComponent } from './authors/authors.component';
 import { BooksComponent } from './books/books.component';
 import { AuthorInfoComponent } from './author-info/author-info.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { AuthorInfoComponent } from './author-info/author-info.component';
     AuthorsComponent,
     BooksComponent,
     AuthorInfoComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,

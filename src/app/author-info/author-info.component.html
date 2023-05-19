@@ -1,18 +1,26 @@
 <h1>Author Profile</h1>
 
-<div *ngIf="author" class="author-profile">
-  <div class="profile-picture">
-    <img src="assets/img.png" alt="Profile Picture" class="profile-image" />
+<div class="author-container">
+  <div *ngIf="author" class="author-profile">
+    <div class="profile-picture">
+      <img src="assets/img.png" alt="Profile Picture" class="profile-image" />
+    </div>
+    <div class="profile-details">
+      <h2>{{ author.name }}</h2>
+      <p class="author-info"><strong>Age:</strong> {{ author.age }}</p>
+      <p class="author-info"><strong>Rating:</strong> {{ author.rating }}</p>
+      <p class="author-bio"><strong>Biography:</strong></p>
+      <p class="author-bio">{{ author.biography }}</p>
+    </div>
   </div>
-  <div class="profile-details">
-    <h2>{{ author.name }}</h2>
-    <p class="author-info"><strong>Age:</strong> {{ author.age }}</p>
-    <p class="author-info"><strong>Rating:</strong> {{ author.rating }}</p>
-    <p class="author-bio"><strong>Biography:</strong></p>
-    <p class="author-bio">{{ author.biography }}</p>
+
+  <div class="books-grid">
+    <h2>Books by {{ author.name }}</h2>
+    <div class="book-profile" *ngFor="let book of books">
+      <h3>{{ book.title }}</h3>
+      <p><strong>Year:</strong> {{ book.year }}</p>
+      <p><strong>Rating:</strong> {{ book.rating }}</p>
+      <p><strong>Author ID:</strong> {{ book.authorId }}</p>
+    </div>
   </div>
 </div>
-
-<!-- <div *ngIf="!author">
-  <p>Loading author information...</p>
-</div> -->

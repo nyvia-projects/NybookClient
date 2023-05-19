@@ -6,6 +6,7 @@ import { LoginComponent } from './auth/login.component';
 import { AuthorsComponent } from './authors/authors.component';
 import { BooksComponent } from './books/books.component';
 import { AuthorInfoComponent } from './author-info/author-info.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -14,6 +15,8 @@ const routes: Routes = [
   { path: 'author/:id', component: AuthorInfoComponent },
   { path: 'books', component: BooksComponent },
   { path: 'login', component: LoginComponent },
+  { path: '404', component: NotFoundComponent }, // Optional: If you want to have a specific 404 component
+  { path: '**', redirectTo: '/404' }, // Wildcard route to handle unknown URLs
 ];
 
 @NgModule({

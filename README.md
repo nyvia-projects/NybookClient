@@ -1,27 +1,24 @@
-# WeatherClient
+# Nybook Client for COMP 584
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.4.
+Nybook is full stack application that allows authenticated user to register authors, books and assign books to their respective authors.
 
-## Development server
+Nybook Client allows for 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### Authors
+- GET 		: getting all authors
+- GET 		: getting a specific author by id and displaying information
+- POST 		: adding a new author
+- PUT 		: updating existing author
+- DELETE 	: deleting existing author
 
-## Code scaffolding
+### Books
+- GET 		: getting books authors
+- GET 		: navigating to book's author's info page by selecting 
+- POST 		: adding a new book and assigning to author
+- PUT 		: updating existing book
+- DELETE 	: deleting existing book
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+For convenience all this functionalities are available within respective route's tables.
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Furthermore, I also implemented custom Not Found (HTTP 404) Pages
+This components gets loaded in our routes and AuthorInfoComponent will redirect to this page is client tries to get information about author which does not exist.
