@@ -22,6 +22,9 @@
       <td>{{ author.age }}</td>
       <td>{{ author.rating }}</td>
       <td>
+        <a [routerLink]="'/author/' + author.id">View Profile</a>
+      </td>
+      <td>
         <button (click)="editAuthor(author)">Edit</button>
         <button (click)="removeAuthor(author)">Remove</button>
       </td>

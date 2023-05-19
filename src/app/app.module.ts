@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
-import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
@@ -19,17 +18,18 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { AuthorsComponent } from './authors/authors.component';
 import { BooksComponent } from './books/books.component';
+import { AuthorInfoComponent } from './author-info/author-info.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     CounterComponent,
-    FetchDataComponent,
     NavMenuComponent,
     LoginComponent,
     AuthorsComponent,
     BooksComponent,
+    AuthorInfoComponent,
   ],
   imports: [
     BrowserModule,

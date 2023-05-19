@@ -22,7 +22,10 @@
       <td>{{ book.title }}</td>
       <td>{{ book.year }}</td>
       <td>{{ book.rating }}</td>
-      <td>{{ book.authorId }}</td>
+      <td>
+        <a [routerLink]="'/author/' + book.authorId">{{ book.authorId }}</a>
+      </td>
+
       <td>
         <button (click)="editBook(book)">Edit</button>
         <button (click)="removeBook(book)">Remove</button>

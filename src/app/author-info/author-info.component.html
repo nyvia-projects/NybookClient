@@ -1,0 +1,18 @@
+<h1>Author Profile</h1>
+
+<div *ngIf="author" class="author-profile">
+  <div class="profile-picture">
+    <img src="assets/img.png" alt="Profile Picture" class="profile-image" />
+  </div>
+  <div class="profile-details">
+    <h2>{{ author.name }}</h2>
+    <p class="author-info"><strong>Age:</strong> {{ author.age }}</p>
+    <p class="author-info"><strong>Rating:</strong> {{ author.rating }}</p>
+    <p class="author-bio"><strong>Biography:</strong></p>
+    <p class="author-bio">{{ author.biography }}</p>
+  </div>
+</div>
+
+<!-- <div *ngIf="!author">
+  <p>Loading author information...</p>
+</div> -->
