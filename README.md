@@ -2,6 +2,8 @@
 
 Nybook is full stack application that allows authenticated user to register authors, books and assign books to their respective authors.
 
+[Nybook Server GitHub link](https://github.com/nyvia-projects/NybookServer)
+
 Nybook Client allows for 
 
 ### Authors
